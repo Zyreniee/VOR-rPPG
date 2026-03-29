@@ -1,25 +1,29 @@
-# VOR: Variance-Optimized rPPG
+# VOR-rPPG Core
 
-[![DOI](https://zenodo.org/badge/DOI/FILL_AFTER_ZENODO.svg)](https://doi.org/10.5281/zenodo.FILL_AFTER_ZENODO)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Variance-Optimized rPPG (VOR) is a high-performance C++20 engine for multi-modal signal fusion in remote photoplethysmography. It implements risk-aware spectral clustering to mitigate motion artifacts and harmonic interference.
 
-VOR (Variance-Optimized rPPG) is a novel multi-modal framework for robust remote photoplethysmography. It fuses multiple extraction algorithms (CHROM, POS, Green) across multiple regions of interest (ROIs) through a risk-aware spectral clustering engine.
+## Features
+- **Multi-Modal Fusion**: Greedy clustering of candidates from POS, CHROM, and Green extractors.
+- **Risk Annotation**: Sigmoid-based confidence weighting $(\phi)$ penalizing boundary and harmonic risks.
+- **Temporal Trust**: Stability state machine for robust heart rate estimation in dynamic environments.
 
-## Core Features
-- **Sigmoid Confidence Weighting**: Mathematically penalizes spectral artifacts and "harmonic traps".
-- **Spectral Clustering**: Greedy fusion of multi-ROI candidates to establish consensus.
-- **Temporal Trust Engine**: Stability analysis utilizing historical memory and method agreement logic.
+## Build Requirements
+- C++20 compatible compiler (GCC 11+, Clang 13+, MSVC 19.30+)
+- CMake 3.15+
 
-## Academic Paper
-The formal mathematical and algorithmic specification of the VOR engine is available in the `paper/` directory of this repository. 
-- **Title:** VOR: A Variance-Optimized Multi-Modal Framework for Robust Remote Photoplethysmography
-- **Author:** Yusuf Gunes (*Independent Researcher*)
-- **ORCID:** [0009-0003-0173-9536](https://orcid.org/0009-0003-0173-9536)
+## Building the Library
+```bash
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+```
 
-## Implementation Details
-This repository contains the C++20 reference implementation of the VOR component, specifically targeting deterministic, high-performance extraction for medical and telehealth applications. It is dependency-free by design to ensure broad portability.
+## Example Usage
+A minimal benchmark demonstrating how to process multi-ROI RGB signals:
+```bash
+./vor_benchmark
+```
+Refer to `examples/benchmark.cpp` for implementation details.
 
-*Note: This repository specifically contains the VOR extraction engine. The complete medical-grade triage infrastructure, which integrates VOR within a Vulkan-accelerated Heart-on-a-chip pipeline, remains part of the primary proprietary system.*
-
-## Citation
-If you use this algorithm in your research or product, please cite the Zenodo DOI provided above.
+## License
+MIT License - Copyright (c) 2026 Yusuf Gön
