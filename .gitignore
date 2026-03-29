@@ -37,5 +37,25 @@
 *.out
 *.app
 
-# debug information files
+# Debug information files
 *.dwo
+
+# CMake
+/build/
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/install/
+/Makefile
+/_deps/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+vor_debug.csv
+vor_candidates.csv
+vor_state.csv
