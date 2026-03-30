@@ -7,7 +7,7 @@
 /**
  * VOR-rPPG Basic Library Benchmark
  * This example demonstrates simple library initialization and 
- * provides a mock signal processing loop for validation.
+ * provides a mock signal processing loop for validation
  */
 
 int main() {
