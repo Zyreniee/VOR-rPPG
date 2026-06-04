@@ -25,7 +25,7 @@ make
 ```
 
 ## Citation
-If you use this framework in your research, please cite the official preprint:
+If you use this framework in your research,please cite the official preprint:
 
 ```bibtex
 @software{vor_rppg_2026,
